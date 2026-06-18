@@ -11,31 +11,34 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black:   #0a0a0a;
-      --charcoal:#1a1a1a;
-      --dark:    #111827;
-      --mid:     #1f2937;
-      --border:  #2d3748;
-      --steel:   #374151;
-      --muted:   #6b7280;
-      --silver:  #9ca3af;
-      --light:   #e5e7eb;
+      --bg:      #f8fafc;
+      --bg-alt:  #ffffff;
+      --bg-card: #ffffff;
+      --bg-dark: #0f172a;
+      --bg-mid:  #f1f5f9;
+      --border:  #e2e8f0;
+      --steel:   #cbd5e1;
+      --muted:   #94a3b8;
+      --silver:  #64748b;
+      --body:    #334155;
+      --heading: #0f172a;
       --white:   #ffffff;
-      --accent:  #f59e0b;   /* amber */
+      --accent:  #f59e0b;
       --accentd: #d97706;
       --accentl: #fcd34d;
-      --green:   #10b981;
-      --red:     #ef4444;
+      --green:   #059669;
+      --red:     #dc2626;
       --radius:  12px;
-      --shadow:  0 20px 60px rgba(0,0,0,0.5);
+      --shadow:  0 4px 24px rgba(15,23,42,0.08);
+      --shadow-md: 0 8px 32px rgba(15,23,42,0.12);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--black);
-      color: var(--white);
+      background: var(--bg);
+      color: var(--body);
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -45,10 +48,10 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(10,10,10,0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
       padding: 0 24px;
       height: 64px;
       display: flex;
@@ -62,6 +65,7 @@
       font-weight: 800;
       font-size: 1.1rem;
       letter-spacing: -0.02em;
+      color: var(--heading);
     }
     .nav-brand .wrench { font-size: 1.3rem; }
     .nav-brand span em {
@@ -81,10 +85,10 @@
       font-weight: 500;
       transition: color .2s;
     }
-    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover { color: var(--heading); }
     .nav-cta {
       background: var(--accent);
-      color: var(--black) !important;
+      color: var(--bg-dark) !important;
       padding: 9px 20px;
       border-radius: 8px;
       font-weight: 700 !important;
@@ -106,13 +110,13 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(to right, rgba(10,10,10,0.97) 40%, rgba(10,10,10,0.6) 100%),
+        linear-gradient(to right, rgba(10,10,10,0.96) 38%, rgba(10,10,10,0.55) 100%),
         url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1600&auto=format&fit=crop&q=80') center/cover no-repeat;
     }
     .hero-bg-overlay {
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 20% 50%, rgba(245,158,11,0.08) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 18% 50%, rgba(245,158,11,0.1) 0%, transparent 55%);
     }
     .hero-content {
       position: relative;
@@ -124,8 +128,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(245,158,11,0.12);
-      border: 1px solid rgba(245,158,11,0.3);
+      background: rgba(245,158,11,0.15);
+      border: 1px solid rgba(245,158,11,0.35);
       color: var(--accentl);
       font-size: 0.78rem;
       font-weight: 600;
@@ -137,7 +141,7 @@
     }
     .hero-badge .dot {
       width: 6px; height: 6px;
-      background: var(--green);
+      background: #34d399;
       border-radius: 50%;
       animation: pulse 2s infinite;
     }
@@ -151,6 +155,7 @@
       line-height: 1.08;
       letter-spacing: -0.03em;
       margin-bottom: 24px;
+      color: #ffffff;
     }
     .hero h1 em {
       font-style: normal;
@@ -158,11 +163,12 @@
     }
     .hero-sub {
       font-size: 1.1rem;
-      color: var(--silver);
+      color: #94a3b8;
       line-height: 1.7;
       margin-bottom: 36px;
       max-width: 540px;
     }
+    .hero-sub strong { color: #ffffff; }
     .hero-ctas {
       display: flex;
       flex-wrap: wrap;
@@ -174,7 +180,7 @@
       align-items: center;
       gap: 8px;
       background: var(--accent);
-      color: var(--black);
+      color: var(--bg-dark);
       font-weight: 700;
       font-size: 0.95rem;
       padding: 15px 26px;
@@ -187,15 +193,15 @@
     .btn-primary:hover {
       background: var(--accentd);
       transform: translateY(-1px);
-      box-shadow: 0 8px 24px rgba(245,158,11,0.35);
+      box-shadow: 0 8px 24px rgba(245,158,11,0.4);
     }
     .btn-secondary {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: var(--white);
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #ffffff;
       font-weight: 600;
       font-size: 0.95rem;
       padding: 15px 26px;
@@ -204,8 +210,27 @@
       transition: all .2s;
     }
     .btn-secondary:hover {
-      background: rgba(255,255,255,0.12);
-      border-color: rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.35);
+    }
+    /* Light btn-secondary for light sections */
+    .btn-secondary-light {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-mid);
+      border: 1px solid var(--border);
+      color: var(--heading);
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all .2s;
+    }
+    .btn-secondary-light:hover {
+      background: var(--border);
+      border-color: var(--steel);
     }
     .hero-trust {
       display: flex;
@@ -215,51 +240,36 @@
     }
     .stars-row {
       display: flex;
-      gap: 3px;
+      gap: 2px;
       color: var(--accent);
       font-size: 1.1rem;
     }
     .trust-text {
       font-size: 0.85rem;
-      color: var(--silver);
+      color: #94a3b8;
     }
-    .trust-text strong { color: var(--white); }
+    .trust-text strong { color: #ffffff; }
     .trust-sep {
       width: 1px;
       height: 20px;
-      background: var(--border);
+      background: rgba(255,255,255,0.15);
     }
-    .hero-image-panel {
-      position: absolute;
-      right: 0; top: 0; bottom: 0;
-      width: 55%;
-      display: flex;
-      align-items: stretch;
-      overflow: hidden;
-    }
-    .hero-image-panel img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-    }
-    /* Stats strip at bottom of hero */
+    /* Stats strip */
     .hero-stats {
       position: absolute;
       bottom: 0; left: 0; right: 0;
       z-index: 3;
-      background: rgba(17,24,39,0.95);
-      border-top: 1px solid var(--border);
+      background: var(--bg-dark);
+      border-top: 1px solid rgba(255,255,255,0.08);
       display: flex;
       justify-content: center;
-      gap: 0;
     }
     .stat-item {
       flex: 1;
       max-width: 200px;
       text-align: center;
       padding: 20px 16px;
-      border-right: 1px solid var(--border);
+      border-right: 1px solid rgba(255,255,255,0.07);
     }
     .stat-item:last-child { border-right: none; }
     .stat-num {
@@ -271,7 +281,7 @@
     }
     .stat-label {
       font-size: 0.72rem;
-      color: var(--silver);
+      color: #64748b;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       margin-top: 4px;
@@ -287,7 +297,7 @@
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
     .section-title {
       font-size: clamp(1.8rem, 3.5vw, 2.6rem);
@@ -295,6 +305,7 @@
       letter-spacing: -0.03em;
       line-height: 1.15;
       margin-bottom: 16px;
+      color: var(--heading);
     }
     .section-sub {
       color: var(--silver);
@@ -303,8 +314,8 @@
       line-height: 1.7;
     }
 
-    /* ─── ADVANTAGE SECTION ─── */
-    #advantage { background: var(--dark); }
+    /* ─── ADVANTAGE ─── */
+    #advantage { background: var(--bg-alt); }
     .advantage-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -316,6 +327,7 @@
       overflow: hidden;
       position: relative;
       aspect-ratio: 4/3;
+      box-shadow: var(--shadow-md);
     }
     .advantage-image img {
       width: 100%;
@@ -327,7 +339,7 @@
       bottom: 20px;
       left: 20px;
       background: var(--accent);
-      color: var(--black);
+      color: var(--bg-dark);
       font-weight: 800;
       font-size: 0.85rem;
       padding: 8px 16px;
@@ -336,65 +348,71 @@
     .advantage-points {
       display: flex;
       flex-direction: column;
-      gap: 28px;
-      margin-top: 36px;
+      gap: 16px;
+      margin-top: 32px;
     }
     .adv-card {
       display: flex;
-      gap: 18px;
+      gap: 16px;
       align-items: flex-start;
-      padding: 22px 24px;
-      background: var(--mid);
+      padding: 20px 22px;
+      background: var(--bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      transition: border-color .2s;
+      transition: all .2s;
     }
-    .adv-card:hover { border-color: var(--accent); }
+    .adv-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 16px rgba(245,158,11,0.1);
+      transform: translateY(-1px);
+    }
     .adv-icon {
-      width: 48px;
-      height: 48px;
-      background: rgba(245,158,11,0.12);
+      width: 44px;
+      height: 44px;
+      background: rgba(245,158,11,0.1);
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       flex-shrink: 0;
     }
     .adv-body h3 {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 700;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
+      color: var(--heading);
     }
     .adv-body p {
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       color: var(--silver);
       line-height: 1.6;
     }
 
     /* ─── SERVICES ─── */
-    #services { background: var(--black); }
+    #services { background: var(--bg); }
     .services-intro {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      margin-bottom: 56px;
+      margin-bottom: 48px;
       gap: 24px;
       flex-wrap: wrap;
     }
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
     .service-card {
-      background: var(--charcoal);
+      background: var(--bg-alt);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 28px 24px;
       transition: all .25s;
       position: relative;
       overflow: hidden;
+      box-shadow: var(--shadow);
     }
     .service-card::before {
       content: '';
@@ -406,7 +424,11 @@
       transition: transform .25s;
       transform-origin: left;
     }
-    .service-card:hover { border-color: rgba(245,158,11,0.4); transform: translateY(-3px); }
+    .service-card:hover {
+      border-color: rgba(245,158,11,0.35);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
     .service-card:hover::before { transform: scaleX(1); }
     .service-icon {
       font-size: 2rem;
@@ -414,10 +436,11 @@
       display: block;
     }
     .service-card h3 {
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 700;
       margin-bottom: 10px;
       letter-spacing: -0.01em;
+      color: var(--heading);
     }
     .service-card p {
       font-size: 0.875rem;
@@ -426,7 +449,7 @@
     }
 
     /* ─── REVIEWS ─── */
-    #reviews { background: var(--dark); }
+    #reviews { background: var(--bg-alt); }
     .reviews-header {
       text-align: center;
       margin-bottom: 56px;
@@ -435,11 +458,12 @@
       display: inline-flex;
       align-items: center;
       gap: 16px;
-      background: var(--mid);
+      background: var(--bg);
       border: 1px solid var(--border);
       padding: 16px 28px;
       border-radius: 100px;
       margin-bottom: 20px;
+      box-shadow: var(--shadow);
     }
     .rating-big {
       font-size: 2.8rem;
@@ -449,26 +473,31 @@
     }
     .rating-stars { color: var(--accent); font-size: 1.5rem; display: flex; gap: 2px; }
     .rating-meta { font-size: 0.85rem; color: var(--silver); text-align: left; }
-    .rating-meta strong { display: block; color: var(--white); font-size: 0.95rem; }
+    .rating-meta strong { display: block; color: var(--heading); font-size: 0.95rem; }
     .reviews-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 20px;
     }
     .review-card {
-      background: var(--mid);
+      background: var(--bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 28px;
       position: relative;
-      transition: border-color .2s;
+      transition: all .2s;
+      box-shadow: var(--shadow);
     }
-    .review-card:hover { border-color: rgba(245,158,11,0.3); }
+    .review-card:hover {
+      border-color: rgba(245,158,11,0.3);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
     .review-card::before {
       content: '"';
       position: absolute;
-      top: 18px;
-      right: 24px;
+      top: 16px;
+      right: 22px;
       font-size: 5rem;
       color: rgba(245,158,11,0.1);
       font-family: Georgia, serif;
@@ -477,7 +506,7 @@
     .review-stars { color: var(--accent); font-size: 1rem; margin-bottom: 14px; display: flex; gap: 2px; }
     .review-text {
       font-size: 0.925rem;
-      color: var(--light);
+      color: var(--body);
       line-height: 1.7;
       margin-bottom: 20px;
     }
@@ -496,10 +525,10 @@
       justify-content: center;
       font-weight: 800;
       font-size: 0.85rem;
-      color: var(--black);
+      color: var(--bg-dark);
       flex-shrink: 0;
     }
-    .author-info .name { font-weight: 700; font-size: 0.9rem; }
+    .author-info .name { font-weight: 700; font-size: 0.9rem; color: var(--heading); }
     .author-info .source { font-size: 0.78rem; color: var(--muted); }
     .review-source-badge {
       display: inline-flex;
@@ -509,14 +538,14 @@
       font-weight: 600;
       padding: 3px 8px;
       border-radius: 4px;
-      margin-left: 8px;
+      margin-left: 6px;
       vertical-align: middle;
     }
-    .badge-google { background: rgba(66,133,244,0.15); color: #60a5fa; }
-    .badge-yell { background: rgba(245,158,11,0.15); color: var(--accentl); }
+    .badge-google { background: rgba(66,133,244,0.1); color: #2563eb; }
+    .badge-yell { background: rgba(245,158,11,0.12); color: #b45309; }
 
     /* ─── BOOKING ─── */
-    #booking { background: var(--black); }
+    #booking { background: var(--bg); }
     .booking-wrap {
       display: grid;
       grid-template-columns: 1fr 1.1fr;
@@ -537,8 +566,8 @@
       font-size: 0.9rem;
     }
     .info-item .icon-box {
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       background: rgba(245,158,11,0.1);
       border-radius: 8px;
       display: flex;
@@ -548,18 +577,21 @@
       font-size: 1rem;
     }
     .info-item span { color: var(--silver); }
-    .info-item strong { color: var(--white); }
+    .info-item strong { color: var(--heading); }
+    .info-item a { color: var(--accent); text-decoration: none; font-weight: 700; }
     .booking-form {
-      background: var(--charcoal);
+      background: var(--bg-alt);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 40px;
+      box-shadow: var(--shadow-md);
     }
     .booking-form h3 {
       font-size: 1.3rem;
       font-weight: 800;
       margin-bottom: 28px;
       letter-spacing: -0.02em;
+      color: var(--heading);
     }
     .form-row {
       display: grid;
@@ -573,30 +605,29 @@
       margin-bottom: 18px;
     }
     .form-group label {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 600;
       color: var(--silver);
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
     .form-group input,
-    .form-group textarea,
-    .form-group select {
-      background: var(--mid);
-      border: 1px solid var(--steel);
+    .form-group textarea {
+      background: var(--bg);
+      border: 1px solid var(--border);
       border-radius: 8px;
-      color: var(--white);
+      color: var(--heading);
       font-size: 0.95rem;
       font-family: inherit;
       padding: 12px 14px;
-      transition: border-color .2s;
+      transition: border-color .2s, box-shadow .2s;
       outline: none;
       resize: vertical;
     }
     .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
+    .form-group textarea:focus {
       border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(245,158,11,0.12);
     }
     .form-group input::placeholder,
     .form-group textarea::placeholder { color: var(--muted); }
@@ -616,8 +647,8 @@
       align-items: center;
       gap: 6px;
       padding: 14px 12px;
-      background: var(--mid);
-      border: 2px solid var(--steel);
+      background: var(--bg);
+      border: 2px solid var(--border);
       border-radius: 10px;
       cursor: pointer;
       font-size: 0.82rem;
@@ -629,13 +660,13 @@
     .radio-option label .emoji { font-size: 1.4rem; }
     .radio-option input:checked + label {
       border-color: var(--accent);
-      background: rgba(245,158,11,0.08);
-      color: var(--white);
+      background: rgba(245,158,11,0.06);
+      color: var(--heading);
     }
     .form-submit {
       width: 100%;
       background: var(--accent);
-      color: var(--black);
+      color: var(--bg-dark);
       border: none;
       border-radius: 10px;
       font-size: 1rem;
@@ -657,8 +688,8 @@
       margin-top: 12px;
     }
 
-    /* ─── MAP / FOOTER ─── */
-    #location { background: var(--dark); padding-bottom: 0; }
+    /* ─── LOCATION ─── */
+    #location { background: var(--bg-alt); padding-bottom: 0; }
     .location-grid {
       display: grid;
       grid-template-columns: 1fr 1.6fr;
@@ -666,13 +697,14 @@
       align-items: start;
       margin-bottom: 64px;
     }
-    .location-details { display: flex; flex-direction: column; gap: 24px; }
+    .location-details { display: flex; flex-direction: column; gap: 28px; }
     .hours-table { width: 100%; border-collapse: collapse; }
     .hours-table tr { border-bottom: 1px solid var(--border); }
     .hours-table tr:last-child { border-bottom: none; }
     .hours-table td {
       padding: 10px 0;
       font-size: 0.9rem;
+      color: var(--body);
     }
     .hours-table td:first-child { color: var(--silver); }
     .hours-table td:last-child { font-weight: 600; text-align: right; }
@@ -681,20 +713,23 @@
     .map-container {
       border-radius: var(--radius);
       overflow: hidden;
-      height: 380px;
+      height: 390px;
       border: 1px solid var(--border);
+      box-shadow: var(--shadow);
     }
     .map-container iframe {
       width: 100%;
       height: 100%;
       border: none;
-      filter: invert(90%) hue-rotate(180deg) saturate(0.8);
     }
 
-    /* Footer strip */
+    /* ─── FOOTER ─── */
     footer {
-      background: var(--black);
-      border-top: 1px solid var(--border);
+      background: var(--bg-dark);
+      color: #94a3b8;
+    }
+    .footer-main {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
       padding: 32px 24px;
     }
     .footer-inner {
@@ -709,13 +744,15 @@
     .footer-brand {
       font-weight: 800;
       font-size: 1rem;
+      color: #ffffff;
     }
     .footer-brand em { color: var(--accent); font-style: normal; }
     .footer-copy {
       font-size: 0.8rem;
-      color: var(--muted);
+      color: #64748b;
       text-align: center;
       flex: 1;
+      line-height: 1.7;
     }
     .footer-links {
       display: flex;
@@ -723,17 +760,39 @@
       list-style: none;
     }
     .footer-links a {
-      color: var(--muted);
+      color: #64748b;
       text-decoration: none;
       font-size: 0.82rem;
       transition: color .2s;
     }
     .footer-links a:hover { color: var(--accent); }
+    /* Spurwise credit bar */
+    .footer-credit {
+      padding: 14px 24px;
+      text-align: center;
+    }
+    .footer-credit-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      font-size: 0.75rem;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .footer-credit-inner a {
+      color: #475569;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color .2s;
+    }
+    .footer-credit-inner a:hover { color: var(--accent); }
 
     /* ─── SCROLL REVEAL ─── */
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
+      transform: translateY(22px);
       transition: opacity 0.55s ease, transform 0.55s ease;
     }
     .reveal.visible {
@@ -746,10 +805,11 @@
       .advantage-grid,
       .booking-wrap,
       .location-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
       .hero-content { padding: 60px 28px 140px; max-width: 100%; }
       .hero-bg {
         background:
-          linear-gradient(to bottom, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.75) 100%),
+          linear-gradient(to bottom, rgba(10,10,10,0.93) 0%, rgba(10,10,10,0.72) 100%),
           url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1200&auto=format&fit=crop&q=80') center/cover no-repeat;
       }
       .nav-links { display: none; }
@@ -767,6 +827,7 @@
       .reviews-grid { grid-template-columns: 1fr; }
       .stat-item { padding: 14px 8px; }
       .stat-num { font-size: 1.4rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
     }
   </style>
 </head>
@@ -800,7 +861,7 @@
       <h1>Welling's 5-Star Garage — <em>Built Around Your Schedule.</em></h1>
 
       <p class="hero-sub">
-        Professional vehicle maintenance, diagnostics, and mechanical repairs. Open until <strong style="color:#fff">9:30 PM weekdays</strong> so you can drop your car off after your commute — without the rush.
+        Professional vehicle maintenance, diagnostics, and mechanical repairs. Open until <strong>9:30 PM weekdays</strong> so you can drop your car off after your commute — without the rush.
       </p>
 
       <div class="hero-ctas">
@@ -842,7 +903,7 @@
     </div>
   </section>
 
-  <!-- ADVANTAGE SECTION -->
+  <!-- ADVANTAGE -->
   <section id="advantage">
     <div class="container">
       <div class="advantage-grid">
@@ -1015,10 +1076,10 @@
           </div>
         </div>
 
-        <div class="review-card reveal" style="background: linear-gradient(135deg, rgba(245,158,11,0.08), rgba(245,158,11,0.03)); border-color: rgba(245,158,11,0.3);">
+        <div class="review-card reveal" style="background: linear-gradient(135deg, rgba(245,158,11,0.06), rgba(245,158,11,0.02)); border-color: rgba(245,158,11,0.25);">
           <div style="font-size: 2.5rem; margin-bottom: 14px;">⭐</div>
-          <p class="review-text" style="font-size:1.05rem; font-weight:600; color:var(--white);">"22 Google reviews. Every single one is five stars."</p>
-          <p style="font-size:0.875rem; color:var(--silver); margin-top:8px;">A record of consistent excellence that no amount of advertising can buy. Only real customers, real results.</p>
+          <p class="review-text" style="font-size:1.05rem; font-weight:700; color:var(--heading);">"22 Google reviews. Every single one is five stars."</p>
+          <p style="font-size:0.875rem; color:var(--silver); margin-top:8px; line-height:1.6;">A record of consistent excellence that no amount of advertising can buy. Only real customers, real results.</p>
           <div style="margin-top:20px;">
             <a href="https://share.google/QqTGnxKIjVrRtBZ9P" target="_blank" rel="noopener" class="btn-primary" style="font-size:0.85rem; padding: 11px 18px;">
               Read All Google Reviews →
@@ -1046,7 +1107,7 @@
             </div>
             <div class="info-item">
               <div class="icon-box">📞</div>
-              <span>Call or text: <strong><a href="tel:02088543851" style="color:var(--accent); text-decoration:none;">020 8854 3851</a></strong></span>
+              <span>Call or text: <a href="tel:02088543851">020 8854 3851</a></span>
             </div>
             <div class="info-item">
               <div class="icon-box">🕘</div>
@@ -1124,7 +1185,7 @@
       <div class="location-grid">
         <div class="location-details reveal">
           <div>
-            <h3 style="font-size:1.1rem; font-weight:700; margin-bottom:16px;">Opening Hours</h3>
+            <h3 style="font-size:1.05rem; font-weight:700; margin-bottom:16px; color:var(--heading);">Opening Hours</h3>
             <table class="hours-table">
               <tr><td>Monday</td><td class="hours-open">09:30 – 21:30</td></tr>
               <tr><td>Tuesday</td><td class="hours-open">09:30 – 21:30</td></tr>
@@ -1136,16 +1197,15 @@
             </table>
           </div>
           <div>
-            <h3 style="font-size:1.1rem; font-weight:700; margin-bottom:16px;">Address</h3>
-            <p style="color:var(--silver); font-size:0.9rem; line-height:1.8;">
+            <h3 style="font-size:1.05rem; font-weight:700; margin-bottom:16px; color:var(--heading);">Address</h3>
+            <p style="color:var(--silver); font-size:0.9rem; line-height:1.9;">
               Andy's Motors Ltd<br/>
               Unit 6a, Graves Estate<br/>
-              Leigh Place<br/>
-              Welling<br/>
+              Leigh Place, Welling<br/>
               DA16 3JD
             </p>
             <br/>
-            <a href="https://maps.google.com/?q=Unit+6a+Graves+Estate+Leigh+Place+Welling+DA16+3JD" target="_blank" rel="noopener" class="btn-secondary" style="display:inline-flex; font-size:0.85rem; padding:10px 18px;">
+            <a href="https://maps.google.com/?q=Andy%27s+Motors+Welling" target="_blank" rel="noopener" class="btn-secondary-light">
               📍 Open in Google Maps
             </a>
           </div>
@@ -1153,7 +1213,7 @@
 
         <div class="map-container reveal">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d994.2!2d0.1082771!3d51.4666614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8ab6d6eb5b4b9%3A0x5cf01f2f3a9e4c1c!2sUnit%206a%2C%20Graves%20Estate%2C%20Leigh%20Pl%2C%20Welling%20DA16%203JD!5e0!3m2!1sen!2suk!4v1700000000000"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2453.172984832835!2d0.1082313!3d51.46666140000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8aeda3d529b13%3A0x2f43650b96a5aa9a!2sAndy&#39;s%20Motors!5e1!3m2!1sen!2suk!4v1781813669557!5m2!1sen!2suk"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
@@ -1166,17 +1226,24 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-inner">
-      <div class="footer-brand"><em>Andy's</em> Motors</div>
-      <p class="footer-copy">
-        Andy's Motors Ltd — Unit 6a, Graves Estate, Leigh Pl, Welling, DA16 3JD.<br/>
-        Proudly serving commuter and local drivers across Welling and Bexleyheath. ⭐ 5.0 Rating.
-      </p>
-      <ul class="footer-links">
-        <li><a href="tel:02088543851">020 8854 3851</a></li>
-        <li><a href="https://share.google/QqTGnxKIjVrRtBZ9P" target="_blank" rel="noopener">Google Reviews</a></li>
-        <li><a href="https://www.yell.com/biz/andy-s-motors-welling-2716823/" target="_blank" rel="noopener">Yell</a></li>
-      </ul>
+    <div class="footer-main">
+      <div class="footer-inner">
+        <div class="footer-brand"><em>Andy's</em> Motors</div>
+        <p class="footer-copy">
+          Andy's Motors Ltd — Unit 6a, Graves Estate, Leigh Pl, Welling, DA16 3JD.<br/>
+          Proudly serving commuter and local drivers across Welling and Bexleyheath. ⭐ 5.0 Rating.
+        </p>
+        <ul class="footer-links">
+          <li><a href="tel:02088543851">020 8854 3851</a></li>
+          <li><a href="https://share.google/QqTGnxKIjVrRtBZ9P" target="_blank" rel="noopener">Google Reviews</a></li>
+          <li><a href="https://www.yell.com/biz/andy-s-motors-welling-2716823/" target="_blank" rel="noopener">Yell</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-credit">
+      <div class="footer-credit-inner">
+        Built by <a href="https://spurwise.com" target="_blank" rel="noopener">Spurwise</a> &nbsp;·&nbsp; AI-powered websites for trades &amp; local business
+      </div>
     </div>
   </footer>
 
@@ -1190,10 +1257,10 @@
           observer.unobserve(e.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     reveals.forEach(r => observer.observe(r));
 
-    // Stagger children in grid
+    // Stagger service/review cards
     document.querySelectorAll('.services-grid .service-card, .reviews-grid .review-card').forEach((el, i) => {
       el.style.transitionDelay = `${(i % 3) * 80}ms`;
     });
@@ -1201,7 +1268,7 @@
     // Form submit handler
     function handleSubmit(btn) {
       btn.textContent = '✅ Request Sent — We\'ll Be in Touch!';
-      btn.style.background = 'var(--green)';
+      btn.style.background = '#059669';
       btn.disabled = true;
     }
   </script>

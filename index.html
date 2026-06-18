@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andy's Motors — Welling's 5-Star Garage | Open Until 9:30 PM</title>
+  <meta name="description" content="Andy's Motors, Unit 6a Graves Estate, Welling. 5-star rated garage open until 9:30 PM weekdays. Car repairs, diagnostics, servicing and MOT for Welling & Bexleyheath drivers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #0a0a0a;
+      --charcoal:#1a1a1a;
+      --dark:    #111827;
+      --mid:     #1f2937;
+      --border:  #2d3748;
+      --steel:   #374151;
+      --muted:   #6b7280;
+      --silver:  #9ca3af;
+      --light:   #e5e7eb;
+      --white:   #ffffff;
+      --accent:  #f59e0b;   /* amber */
+      --accentd: #d97706;
+      --accentl: #fcd34d;
+      --green:   #10b981;
+      --red:     #ef4444;
+      --radius:  12px;
+      --shadow:  0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+    .nav-brand .wrench { font-size: 1.3rem; }
+    .nav-brand span em {
+      color: var(--accent);
+      font-style: normal;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--silver);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--black) !important;
+      padding: 9px 20px;
+      border-radius: 8px;
+      font-weight: 700 !important;
+      font-size: 0.875rem !important;
+      transition: background .2s !important;
+    }
+    .nav-cta:hover { background: var(--accentd) !important; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 64px;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, rgba(10,10,10,0.97) 40%, rgba(10,10,10,0.6) 100%),
+        url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1600&auto=format&fit=crop&q=80') center/cover no-repeat;
+    }
+    .hero-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(245,158,11,0.08) 0%, transparent 60%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      padding: 80px 60px 80px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245,158,11,0.12);
+      border: 1px solid rgba(245,158,11,0.3);
+      color: var(--accentl);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .hero-badge .dot {
+      width: 6px; height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--silver);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 540px;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 44px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: var(--black);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 15px 26px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all .2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: var(--accentd);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(245,158,11,0.35);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 15px 26px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all .2s;
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.25);
+    }
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .stars-row {
+      display: flex;
+      gap: 3px;
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+    .trust-text {
+      font-size: 0.85rem;
+      color: var(--silver);
+    }
+    .trust-text strong { color: var(--white); }
+    .trust-sep {
+      width: 1px;
+      height: 20px;
+      background: var(--border);
+    }
+    .hero-image-panel {
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 55%;
+      display: flex;
+      align-items: stretch;
+      overflow: hidden;
+    }
+    .hero-image-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+    }
+    /* Stats strip at bottom of hero */
+    .hero-stats {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      z-index: 3;
+      background: rgba(17,24,39,0.95);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: center;
+      gap: 0;
+    }
+    .stat-item {
+      flex: 1;
+      max-width: 200px;
+      text-align: center;
+      padding: 20px 16px;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--accent);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--silver);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 4px;
+    }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 96px 24px; }
+    .container { max-width: 1120px; margin: 0 auto; }
+    .section-label {
+      display: inline-block;
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      color: var(--silver);
+      font-size: 1.05rem;
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* ─── ADVANTAGE SECTION ─── */
+    #advantage { background: var(--dark); }
+    .advantage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .advantage-image {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 4/3;
+    }
+    .advantage-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .advantage-image-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: var(--accent);
+      color: var(--black);
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 8px 16px;
+      border-radius: 8px;
+    }
+    .advantage-points {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-top: 36px;
+    }
+    .adv-card {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      padding: 22px 24px;
+      background: var(--mid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color .2s;
+    }
+    .adv-card:hover { border-color: var(--accent); }
+    .adv-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(245,158,11,0.12);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .adv-body h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .adv-body p {
+      font-size: 0.9rem;
+      color: var(--silver);
+      line-height: 1.6;
+    }
+
+    /* ─── SERVICES ─── */
+    #services { background: var(--black); }
+    .services-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 56px;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .service-card {
+      background: var(--charcoal);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: all .25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform .25s;
+      transform-origin: left;
+    }
+    .service-card:hover { border-color: rgba(245,158,11,0.4); transform: translateY(-3px); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+    .service-card p {
+      font-size: 0.875rem;
+      color: var(--silver);
+      line-height: 1.65;
+    }
+
+    /* ─── REVIEWS ─── */
+    #reviews { background: var(--dark); }
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .rating-showcase {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--mid);
+      border: 1px solid var(--border);
+      padding: 16px 28px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .rating-big {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .rating-stars { color: var(--accent); font-size: 1.5rem; display: flex; gap: 2px; }
+    .rating-meta { font-size: 0.85rem; color: var(--silver); text-align: left; }
+    .rating-meta strong { display: block; color: var(--white); font-size: 0.95rem; }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .review-card {
+      background: var(--mid);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      position: relative;
+      transition: border-color .2s;
+    }
+    .review-card:hover { border-color: rgba(245,158,11,0.3); }
+    .review-card::before {
+      content: '"';
+      position: absolute;
+      top: 18px;
+      right: 24px;
+      font-size: 5rem;
+      color: rgba(245,158,11,0.1);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    .review-stars { color: var(--accent); font-size: 1rem; margin-bottom: 14px; display: flex; gap: 2px; }
+    .review-text {
+      font-size: 0.925rem;
+      color: var(--light);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .author-avatar {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--accent), var(--accentd));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: var(--black);
+      flex-shrink: 0;
+    }
+    .author-info .name { font-weight: 700; font-size: 0.9rem; }
+    .author-info .source { font-size: 0.78rem; color: var(--muted); }
+    .review-source-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .badge-google { background: rgba(66,133,244,0.15); color: #60a5fa; }
+    .badge-yell { background: rgba(245,158,11,0.15); color: var(--accentl); }
+
+    /* ─── BOOKING ─── */
+    #booking { background: var(--black); }
+    .booking-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .booking-info h2 { margin-bottom: 16px; }
+    .booking-info .section-sub { margin-bottom: 32px; }
+    .info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+    }
+    .info-item .icon-box {
+      width: 34px;
+      height: 34px;
+      background: rgba(245,158,11,0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+    .info-item span { color: var(--silver); }
+    .info-item strong { color: var(--white); }
+    .booking-form {
+      background: var(--charcoal);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+    }
+    .booking-form h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 28px;
+      letter-spacing: -0.02em;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--silver);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: var(--mid);
+      border: 1px solid var(--steel);
+      border-radius: 8px;
+      color: var(--white);
+      font-size: 0.95rem;
+      font-family: inherit;
+      padding: 12px 14px;
+      transition: border-color .2s;
+      outline: none;
+      resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--accent);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--muted); }
+    .radio-group {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .radio-option {
+      flex: 1;
+      position: relative;
+    }
+    .radio-option input[type="radio"] { display: none; }
+    .radio-option label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 14px 12px;
+      background: var(--mid);
+      border: 2px solid var(--steel);
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--silver);
+      text-align: center;
+      transition: all .2s;
+    }
+    .radio-option label .emoji { font-size: 1.4rem; }
+    .radio-option input:checked + label {
+      border-color: var(--accent);
+      background: rgba(245,158,11,0.08);
+      color: var(--white);
+    }
+    .form-submit {
+      width: 100%;
+      background: var(--accent);
+      color: var(--black);
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 800;
+      padding: 16px;
+      cursor: pointer;
+      transition: all .2s;
+      letter-spacing: -0.01em;
+    }
+    .form-submit:hover {
+      background: var(--accentd);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(245,158,11,0.35);
+    }
+    .form-note {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    /* ─── MAP / FOOTER ─── */
+    #location { background: var(--dark); padding-bottom: 0; }
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 48px;
+      align-items: start;
+      margin-bottom: 64px;
+    }
+    .location-details { display: flex; flex-direction: column; gap: 24px; }
+    .hours-table { width: 100%; border-collapse: collapse; }
+    .hours-table tr { border-bottom: 1px solid var(--border); }
+    .hours-table tr:last-child { border-bottom: none; }
+    .hours-table td {
+      padding: 10px 0;
+      font-size: 0.9rem;
+    }
+    .hours-table td:first-child { color: var(--silver); }
+    .hours-table td:last-child { font-weight: 600; text-align: right; }
+    .hours-open { color: var(--green); }
+    .hours-closed { color: var(--red); }
+    .map-container {
+      border-radius: var(--radius);
+      overflow: hidden;
+      height: 380px;
+      border: 1px solid var(--border);
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: invert(90%) hue-rotate(180deg) saturate(0.8);
+    }
+
+    /* Footer strip */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+    }
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-brand {
+      font-weight: 800;
+      font-size: 1rem;
+    }
+    .footer-brand em { color: var(--accent); font-style: normal; }
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+      flex: 1;
+    }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .advantage-grid,
+      .booking-wrap,
+      .location-grid { grid-template-columns: 1fr; }
+      .hero-content { padding: 60px 28px 140px; max-width: 100%; }
+      .hero-bg {
+        background:
+          linear-gradient(to bottom, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.75) 100%),
+          url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1200&auto=format&fit=crop&q=80') center/cover no-repeat;
+      }
+      .nav-links { display: none; }
+      .hero-stats { position: relative; }
+      .hero { padding-bottom: 0; }
+      section { padding: 64px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      .booking-form { padding: 28px 20px; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      .hero-ctas { flex-direction: column; }
+      .btn-primary, .btn-secondary { justify-content: center; }
+      .services-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .stat-item { padding: 14px 8px; }
+      .stat-num { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-brand">
+      <span class="wrench">🔧</span>
+      <span><em>Andy's</em> Motors</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#advantage">Late Hours</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#booking" class="nav-cta">Book Now</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-bg-overlay"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Open Now · Closes 9:30 PM
+      </div>
+
+      <h1>Welling's 5-Star Garage — <em>Built Around Your Schedule.</em></h1>
+
+      <p class="hero-sub">
+        Professional vehicle maintenance, diagnostics, and mechanical repairs. Open until <strong style="color:#fff">9:30 PM weekdays</strong> so you can drop your car off after your commute — without the rush.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="#booking" class="btn-primary">
+          📱 Book an Evening or Daytime Slot
+        </a>
+        <a href="tel:02088543851" class="btn-secondary">
+          📞 Call: 020 8854 3851
+        </a>
+      </div>
+
+      <div class="hero-trust">
+        <div class="stars-row">★★★★★</div>
+        <span class="trust-text"><strong>5.0</strong> Perfect Rating</span>
+        <div class="trust-sep"></div>
+        <span class="trust-text"><strong>22</strong> Five-Star Google Reviews</span>
+        <div class="trust-sep"></div>
+        <span class="trust-text">Google &amp; Yell Verified</span>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">5.0</div>
+        <div class="stat-label">Google Rating</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">22+</div>
+        <div class="stat-label">5-Star Reviews</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">9:30</div>
+        <div class="stat-label">Latest Closing Time</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">DA16</div>
+        <div class="stat-label">Welling, SE London</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVANTAGE SECTION -->
+  <section id="advantage">
+    <div class="container">
+      <div class="advantage-grid">
+        <div class="reveal">
+          <div class="advantage-image">
+            <img
+              src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=800&auto=format&fit=crop&q=80"
+              alt="Mechanic working on a car in a professional workshop"
+              loading="lazy"
+            />
+            <div class="advantage-image-badge">⏰ Open Until 9:30 PM</div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <span class="section-label">The Working Driver's Advantage</span>
+          <h2 class="section-title">The Last Garage You'd Expect To Still Be Open</h2>
+          <p class="section-sub">Most garages close before you've even left the office. Andy's operates on your schedule — not the other way around.</p>
+
+          <div class="advantage-points">
+            <div class="adv-card">
+              <div class="adv-icon">⏰</div>
+              <div class="adv-body">
+                <h3>Open Until 9:30 PM Weekdays</h3>
+                <p>No need to take time off work or rush before early closing times. Drop your vehicle off or collect it in the evening when it suits you.</p>
+              </div>
+            </div>
+            <div class="adv-card">
+              <div class="adv-icon">📍</div>
+              <div class="adv-body">
+                <h3>Secure Workshop on Graves Estate</h3>
+                <p>Tucked away safely in Unit 6a on Leigh Place — a professional, private workshop environment away from the high street.</p>
+              </div>
+            </div>
+            <div class="adv-card">
+              <div class="adv-icon">⚡</div>
+              <div class="adv-body">
+                <h3>Rapid Diagnostic Turnaround</h3>
+                <p>Cutting-edge fault-finding technology combined with flexible hours means your vehicle gets accurately diagnosed and repaired with minimal disruption to your week.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="services-intro reveal">
+        <div>
+          <span class="section-label">Our Services</span>
+          <h2 class="section-title">Everything Under One Roof</h2>
+        </div>
+        <p class="section-sub" style="max-width:380px;">From a dashboard warning light to a full clutch rebuild — Andy handles it all with the same five-star standard.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <span class="service-icon">🔍</span>
+          <h3>Diagnostic Fault Finding</h3>
+          <p>Full ECU plug-in to accurately trace dashboard warning lights, electrical faults, and engine issues — no guesswork, no unnecessary parts.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-icon">🛞</span>
+          <h3>Brake &amp; Suspension Overhauls</h3>
+          <p>Complete replacement of worn brake pads, discs, calipers, shock absorbers, and coil springs using certified parts and manufacturer specs.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-icon">⚙️</span>
+          <h3>Clutch &amp; Gearbox Repairs</h3>
+          <p>Expert mechanical repairs to restore smooth power delivery, gear shifting, and drivetrain reliability — done right the first time.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-icon">🛢️</span>
+          <h3>Routine Servicing &amp; Fluids</h3>
+          <p>Engine oil flushes, filter updates, spark plug replacements, and full safety checks to protect your vehicle warranty and running costs.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-icon">🔩</span>
+          <h3>VW &amp; SEAT Specialist</h3>
+          <p>Deep specialist knowledge of the Volkswagen Group family. Unusual problems welcome — Andy researches every issue until it's properly resolved.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="service-icon">🚗</span>
+          <h3>General Mechanical Repairs</h3>
+          <p>Exhausts, steering, belts, batteries, cooling systems and more. Whatever your vehicle needs, Andy's has you covered.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <div class="container">
+      <div class="reviews-header reveal">
+        <div class="rating-showcase">
+          <div class="rating-big">5.0</div>
+          <div>
+            <div class="rating-stars">★★★★★</div>
+            <div class="rating-meta">
+              <strong>Perfect Score Across Every Platform</strong>
+              Google Reviews · Yell · Not a single star below five.
+            </div>
+          </div>
+        </div>
+        <h2 class="section-title" style="margin-top:0">What Drivers Are Saying</h2>
+      </div>
+
+      <div class="reviews-grid">
+
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Absolute gentleman and brilliant mechanic. Took my car in with an awkward suspension noise, diagnosed it instantly, and fixed it the same day. You won't find service like this at a main dealer."</p>
+          <div class="review-author">
+            <div class="author-avatar">DL</div>
+            <div class="author-info">
+              <div class="name">David L. <span class="review-source-badge badge-google">Google</span></div>
+              <div class="source">Verified Review · 5 stars</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Fantastic to find a local garage that understands people work regular hours. Being able to collect my car late in the evening made my life so much easier. Flawless work, honest pricing."</p>
+          <div class="review-author">
+            <div class="author-avatar">SM</div>
+            <div class="author-info">
+              <div class="name">Sarah M. <span class="review-source-badge badge-google">Google</span></div>
+              <div class="source">Verified Review · 5 stars</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"I took my car to Andy at the last minute and he couldn't have been more helpful. First class service — would not hesitate to recommend him to anyone."</p>
+          <div class="review-author">
+            <div class="author-avatar">JW</div>
+            <div class="author-info">
+              <div class="name">Jan W. <span class="review-source-badge badge-yell">Yell</span></div>
+              <div class="source">Verified Review · Dec 2022</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Andy is super knowledgeable on VW and SEAT. Super friendly and flexible with bookings. Great network for parts and unusual problems. Looked after my ancient Ibiza for years — I'd always go there first."</p>
+          <div class="review-author">
+            <div class="author-avatar">TM</div>
+            <div class="author-info">
+              <div class="name">Thomas M. <span class="review-source-badge badge-yell">Yell</span></div>
+              <div class="source">Verified Review · May 2019</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Sent to Andy by another mechanic who didn't want the job. Andy spent the time to research the problem and fixed it rather than passing me on again. Will be going back for all servicing and MOT needs."</p>
+          <div class="review-author">
+            <div class="author-avatar">EA</div>
+            <div class="author-info">
+              <div class="name">E. A. <span class="review-source-badge badge-yell">Yell</span></div>
+              <div class="source">Verified Review · VW Beetle Specialist Job</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal" style="background: linear-gradient(135deg, rgba(245,158,11,0.08), rgba(245,158,11,0.03)); border-color: rgba(245,158,11,0.3);">
+          <div style="font-size: 2.5rem; margin-bottom: 14px;">⭐</div>
+          <p class="review-text" style="font-size:1.05rem; font-weight:600; color:var(--white);">"22 Google reviews. Every single one is five stars."</p>
+          <p style="font-size:0.875rem; color:var(--silver); margin-top:8px;">A record of consistent excellence that no amount of advertising can buy. Only real customers, real results.</p>
+          <div style="margin-top:20px;">
+            <a href="https://share.google/QqTGnxKIjVrRtBZ9P" target="_blank" rel="noopener" class="btn-primary" style="font-size:0.85rem; padding: 11px 18px;">
+              Read All Google Reviews →
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="booking">
+    <div class="container">
+      <div class="booking-wrap">
+        <div class="reveal">
+          <span class="section-label">Get In Touch</span>
+          <h2 class="section-title">Book Your Slot</h2>
+          <p class="section-sub">Whether you need a morning drop-off or an evening collection, we'll fit around you. Fill in the form and Andy will confirm your booking directly.</p>
+
+          <div class="info-list" style="margin-top:32px;">
+            <div class="info-item">
+              <div class="icon-box">📍</div>
+              <span>Unit 6a, Graves Estate, Leigh Pl, <strong>Welling DA16 3JD</strong></span>
+            </div>
+            <div class="info-item">
+              <div class="icon-box">📞</div>
+              <span>Call or text: <strong><a href="tel:02088543851" style="color:var(--accent); text-decoration:none;">020 8854 3851</a></strong></span>
+            </div>
+            <div class="info-item">
+              <div class="icon-box">🕘</div>
+              <span>Mon–Fri: <strong>09:30 – 21:30</strong> &nbsp;|&nbsp; Sat–Sun: <strong style="color:var(--muted)">Closed</strong></span>
+            </div>
+            <div class="info-item">
+              <div class="icon-box">⭐</div>
+              <span>Rated <strong>5.0 / 5.0</strong> across Google &amp; Yell</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="booking-form reveal">
+          <h3>🔧 Request a Booking</h3>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" placeholder="First &amp; last name" />
+            </div>
+            <div class="form-group">
+              <label>Contact Number</label>
+              <input type="tel" placeholder="07xxx xxxxxx" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Vehicle Registration</label>
+            <input type="text" placeholder="e.g. AB12 CDE" style="text-transform:uppercase; letter-spacing:0.08em;" />
+          </div>
+
+          <div class="form-group">
+            <label>Preferred Time</label>
+          </div>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" name="slot" id="daytime" checked />
+              <label for="daytime">
+                <span class="emoji">☀️</span>
+                Regular Daytime
+              </label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" name="slot" id="evening" />
+              <label for="evening">
+                <span class="emoji">🌙</span>
+                Late-Evening Drop-off
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>What's the issue?</label>
+            <textarea rows="4" placeholder="Describe the problem, warning light, noise, or service required…"></textarea>
+          </div>
+
+          <button class="form-submit" onclick="handleSubmit(this)">
+            🔒 Secure My Booking Slot
+          </button>
+          <p class="form-note">We aim to respond within a few hours. No spam — ever.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section id="location">
+    <div class="container">
+      <div class="reveal" style="margin-bottom:48px;">
+        <span class="section-label">Find Us</span>
+        <h2 class="section-title">Unit 6a, Graves Estate</h2>
+        <p class="section-sub">Tucked away on a secure estate in Welling — easy to reach from Bexleyheath, Plumstead, and Woolwich.</p>
+      </div>
+
+      <div class="location-grid">
+        <div class="location-details reveal">
+          <div>
+            <h3 style="font-size:1.1rem; font-weight:700; margin-bottom:16px;">Opening Hours</h3>
+            <table class="hours-table">
+              <tr><td>Monday</td><td class="hours-open">09:30 – 21:30</td></tr>
+              <tr><td>Tuesday</td><td class="hours-open">09:30 – 21:30</td></tr>
+              <tr><td>Wednesday</td><td class="hours-open">09:30 – 21:30</td></tr>
+              <tr><td>Thursday</td><td class="hours-open">09:30 – 21:30</td></tr>
+              <tr><td>Friday</td><td class="hours-open">09:30 – 21:30</td></tr>
+              <tr><td>Saturday</td><td class="hours-closed">Closed</td></tr>
+              <tr><td>Sunday</td><td class="hours-closed">Closed</td></tr>
+            </table>
+          </div>
+          <div>
+            <h3 style="font-size:1.1rem; font-weight:700; margin-bottom:16px;">Address</h3>
+            <p style="color:var(--silver); font-size:0.9rem; line-height:1.8;">
+              Andy's Motors Ltd<br/>
+              Unit 6a, Graves Estate<br/>
+              Leigh Place<br/>
+              Welling<br/>
+              DA16 3JD
+            </p>
+            <br/>
+            <a href="https://maps.google.com/?q=Unit+6a+Graves+Estate+Leigh+Place+Welling+DA16+3JD" target="_blank" rel="noopener" class="btn-secondary" style="display:inline-flex; font-size:0.85rem; padding:10px 18px;">
+              📍 Open in Google Maps
+            </a>
+          </div>
+        </div>
+
+        <div class="map-container reveal">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d994.2!2d0.1082771!3d51.4666614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8ab6d6eb5b4b9%3A0x5cf01f2f3a9e4c1c!2sUnit%206a%2C%20Graves%20Estate%2C%20Leigh%20Pl%2C%20Welling%20DA16%203JD!5e0!3m2!1sen!2suk!4v1700000000000"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Andy's Motors Location Map">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><em>Andy's</em> Motors</div>
+      <p class="footer-copy">
+        Andy's Motors Ltd — Unit 6a, Graves Estate, Leigh Pl, Welling, DA16 3JD.<br/>
+        Proudly serving commuter and local drivers across Welling and Bexleyheath. ⭐ 5.0 Rating.
+      </p>
+      <ul class="footer-links">
+        <li><a href="tel:02088543851">020 8854 3851</a></li>
+        <li><a href="https://share.google/QqTGnxKIjVrRtBZ9P" target="_blank" rel="noopener">Google Reviews</a></li>
+        <li><a href="https://www.yell.com/biz/andy-s-motors-welling-2716823/" target="_blank" rel="noopener">Yell</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(r => observer.observe(r));
+
+    // Stagger children in grid
+    document.querySelectorAll('.services-grid .service-card, .reviews-grid .review-card').forEach((el, i) => {
+      el.style.transitionDelay = `${(i % 3) * 80}ms`;
+    });
+
+    // Form submit handler
+    function handleSubmit(btn) {
+      btn.textContent = '✅ Request Sent — We\'ll Be in Touch!';
+      btn.style.background = 'var(--green)';
+      btn.disabled = true;
+    }
+  </script>
+</body>
+</html>
